@@ -13,23 +13,34 @@ int main()
 {
     int n;
     cin >> n;
-    Student a[n];
+    Student a[n]; // Create array of objects
 
+    // Input loop
     for (int i = 0; i < n; i++)
     {
         cin >> a[i].name >> a[i].roll >> a[i].mark;
     }
 
-    Student mini;
-    mini.mark = INT_MIN;
+    // 1. Create a temporary object to store the winner
+    Student result; 
+    
+    // 2. Set the initial "highest score" to the lowest possible number
+    // This ensures the first student will automatically replace this.
+    result.mark = INT_MIN; 
+
+    // 3. Loop through everyone to find the highest
     for (int i = 0; i < n; i++)
     {
-        if (a[i].mark > mini.mark)
+        // Check if current student's mark is higher than our current best
+        if (a[i].mark > result.mark)
         {
-            mini = a[i];
+            // Update the result object with the current student's data
+            result = a[i]; 
         }
     }
-    cout << mini.name << " " << mini.roll << " " << mini.mark << endl;
+
+    // 4. Print the details of the student with the highest marks
+    cout << result.name << " " << result.roll << " " << result.mark << endl;
 
     return 0;
 }

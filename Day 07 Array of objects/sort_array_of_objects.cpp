@@ -9,17 +9,12 @@ public:
     int mark;
 };
 
+// The "Judge" function
 bool cmp(Student l, Student r)
 {
-    // if (l.mark < r.mark)
-    // {
-    //     return true;
-    // }
-    // else
-    // {
-    //     return false;
-    // }
-    return l.mark < r.mark;
+    // Logic: We want smaller marks to come first (Ascending)
+    // If l.mark is smaller than r.mark, return true (correct order)
+    return l.mark < r.mark; 
 }
 
 int main()
@@ -33,8 +28,10 @@ int main()
         cin >> a[i].name >> a[i].roll >> a[i].mark;
     }
 
+    // Sort the array 'a' from start to end, using the 'cmp' rule
     sort(a, a + n, cmp);
 
+    // Print the sorted list
     for (int i = 0; i < n; i++)
     {
         cout << a[i].name << " " << a[i].roll << " " << a[i].mark << endl;
